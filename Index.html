@@ -1,0 +1,166 @@
+# chitra-love-card.
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Chitra ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    text-align: center;
+    font-family: Arial;
+    overflow: hidden;
+}
+
+.card {
+    margin-top: 200px;
+    font-size: 25px;
+    background: red;
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.step {
+    display: none;
+    padding: 20px;
+}
+
+img {
+    width: 260px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+button {
+    padding: 12px 25px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background: red;
+    color: white;
+    font-size: 18px;
+}
+
+#final {
+    display: none;
+    font-size: 30px;
+    margin-top: 150px;
+    color: pink;
+}
+
+/* hearts */
+.heart {
+    position: absolute;
+    animation: float 5s linear infinite;
+}
+@keyframes float {
+    0% { transform: translateY(100vh); opacity:1; }
+    100% { transform: translateY(-10vh); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="start" class="card" onclick="startLove()">💌 Tap For Surprise 💌</div>
+
+<!-- STEPS -->
+<div id="step1" class="step">
+<h2>Step 1 ❤️</h2>
+<p>Jab tujhe pehli baar dekha tha… dil wahi ruk gaya tha 💖</p>
+<img src="photo1.jpg">
+<button onclick="next(2)">Next ➡️</button>
+</div>
+
+<div id="step2" class="step">
+<h2>Step 2 💕</h2>
+<p>Teri ek smile… meri duniya bana deti hai 😊</p>
+<img src="photo2.jpg">
+<button onclick="next(3)">Next ➡️</button>
+</div>
+
+<div id="step3" class="step">
+<h2>Step 3 💞</h2>
+<p>Tu paas hoti hai toh sab perfect lagta hai 💘</p>
+<img src="photo3.jpg">
+<button onclick="next(4)">Next ➡️</button>
+</div>
+
+<div id="step4" class="step">
+<p>Main har din tujhe aur zyada chahne laga hoon ❤️</p>
+<button onclick="next(5)">Next ➡️</button>
+</div>
+
+<div id="step5" class="step">
+<p>Tere bina sab kuch adhura hai 💔</p>
+<button onclick="next(6)">Next ➡️</button>
+</div>
+
+<div id="step6" class="step">
+<p>Tu meri aadat ban chuki hai 💖</p>
+<button onclick="next(7)">Next ➡️</button>
+</div>
+
+<div id="step7" class="step">
+<p>Main hamesha tere saath rehna chahta hoon 💞</p>
+<button onclick="next(8)">Next ➡️</button>
+</div>
+
+<div id="step8" class="step">
+<p>Teri care karna hi meri happiness hai 😊</p>
+<button onclick="next(9)">Next ➡️</button>
+</div>
+
+<div id="step9" class="step">
+<h2>💍</h2>
+<p>Kya tu hamesha meri ban ke rahegi? ❤️</p>
+<button onclick="next(10)">YES 💖</button>
+</div>
+
+<div id="step10" class="step">
+<h1>❤️ I LOVE YOU CHITRA ❤️</h1>
+<p>Forever and Always 💖</p>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3">
+</audio>
+
+<script>
+
+// START
+function startLove(){
+    document.getElementById("start").style.display="none";
+    document.getElementById("step1").style.display="block";
+    document.getElementById("music").play();
+}
+
+// NEXT
+function next(n){
+    let steps = document.querySelectorAll(".step");
+    steps.forEach(s => s.style.display="none");
+    document.getElementById("step"+n).style.display="block";
+}
+
+// HEARTS
+setInterval(()=>{
+    let heart = document.createElement("div");
+    heart.innerHTML="❤️";
+    heart.classList.add("heart");
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+20)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),5000);
+},300);
+
+</script>
+
+</body>
+  </html>
